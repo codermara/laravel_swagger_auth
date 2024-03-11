@@ -91,8 +91,6 @@ class AuthController extends Controller
         if (! $token = auth('api')->attempt($credentials,$remember = true)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
-       // $user = auth()->getUser();
-        //auth()->login($user, $remember = true);
         return $this->respondWithToken($token);
     }
     public function info()
@@ -140,7 +138,6 @@ class AuthController extends Controller
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => auth('api')->factory()->getTTL() * 60
-           //'expires_in' => auth('api')->factory()->getTTL() * 60
         ]);
     }
 }
