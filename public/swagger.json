@@ -1,0 +1,59 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Simple API",
+      "version": "1.0.0"
+    },
+    "paths": {
+      "/login": {
+        "post": {
+          "summary": "Login endpoint",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Successful login"
+            },
+            "401": {
+              "description": "Unauthorized"
+            }
+          }
+        }
+      },
+      "/user": {
+        "get": {
+          "summary": "Get user details",
+          "responses": {
+            "200": {
+              "description": "User details retrieved successfully"
+            }
+          }
+        }
+      },
+      "/logout": {
+        "post": {
+          "summary": "Logout endpoint",
+          "responses": {
+            "200": {
+              "description": "Successfully logged out"
+            }
+          }
+        }
+      }
+    }
+  }
